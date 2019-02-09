@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <script src="lib/angular.min.js" ></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/Purchase.js"></script>
+    <link href='css/Purchase.css' rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title></title>
+
+    <style>
+        
+    </style>
+    
+</head>
+
+    
+<body ng-app="app" ng-controller="purchaseController">
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right: 2%;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collappsed-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="ADMINhomepage.html"><img class="navbar-brand" src="./Resources/Images/BooksForAll%20-%20small.png" alt="icon"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collappsed-nav">
+      <ul class="nav navbar-nav">
+    <li><a href="myeBooks.html">My eBooks</a></li>
+						    	<li><a href="Profile.html">{{user.nickname}}</a></li>
+						    	          <li href="Mail.html" class="active"><a style="display:inline-block;" ng-attr-title="{{msg}}">Mail <span class="badge">{{mailCount}}</span></a></li>
+						    	
+						    	<li><a href="About.html">About</a></li>
+								<li><a href="UserHelpMe.html">Contact us</a></li>	
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li>                        
+            <a class="menuSignout" href="" ng-click="Signout()" style="color: #FF5252">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container center-div">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="well well-sm">
+                <form name="userForm" ng-submit="Purchase(userForm.$valid)">
+                    <fieldset>
+                        <legend class="text-center" style="font-size: 24px;">Buy e-Book</legend>
+                        <div class="form-group">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="d-flex align-self-start mr-3 img-size media-object" ng-src="{{choosenBook.cover}}" alt="book">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <legend class="media-heading title">{{choosenBook.name}} <span class="price">${{choosenBook.price}}</span>
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="name" placeholder="Full name" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="billInfo">Billing information</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="billInfo" placeholder="Billing Information" required/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="billInfo">Credit card company</label>
+                                        <div class="input-group">
+                                            <select class="form-control" id="sel1" text="Card type"  name="cctype" required="required">
+                                                <option value="VISA">VISA</option>
+                                                <option value="AMEX">AMEX</option>
+                                            </select> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardNum">Credit card number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" pattern="^([0-9]{16})$" id="cardNum" ng-model="ccNUM" name="ccNUM" placeholder="credit card number" required/>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ExpMM">Expiry date</label>
+                                        <div class="input-group">
+                                            <div class="col-md-2" style="padding:0; margin-right:10%">
+                                            <input type="text" pattern="^([0][1-9])|([1]([1]|[2]|[0]))$" class="form-control" id="ExpMM" placeholder="MM"
+                                                required/>
+                                            </div>
+                                            <div class="col-md-2" style="padding:0;">
+                                            <input type="text" pattern="^([1][8-9])|([2-9][0-9])$" class="form-control" id="ExpYY" placeholder="YY"
+                                                required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="CVV">CVV</label>
+                                        <div class="input-group">
+                                            <div class="col-md-4" style="padding:0;">
+                                            <input type="text" class="form-control" pattern="^([0-9]{3})$" id="CVV" style="padding-right: 4px" placeholder="CVV"
+                                                required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pull-right">
+                                    <button type="button" class="btn btn-danger" ng-click="Cancel()">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Purchase</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ <div class="modal fade" id="xModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Thank you</h4>
+        </div>
+        <div class="modal-body">
+          <p>Purchase completed! enjoy reading.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="Done()">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+    
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+        
+</body>
+    
+</html>

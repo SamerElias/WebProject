@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/ADMINrespond.js"></script>
+    <link href='css/ADMINrespond.css' rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookForAll</title>
+
+    <style>
+
+    </style>
+</head>
+
+<body ng-app="app" ng-controller="ADMINrespondController">
+
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right: 2%;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collappsed-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="ADMINhomepage.html"><img class="navbar-brand" src="./Resources/Images/BooksForAll%20-%20small.png" alt="icon"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collappsed-nav">
+      <ul class="nav navbar-nav">
+    <li><a href="ADMINhomepage.html">e-Books <span class="sr-only">(current)</span></a></li>
+        <li><a href="ADMINusersList.html">Manage Users</a></li>
+        <li><a href="ADMINtransactions.html">Transactions</a></li>
+          <li><a href="ADMINmail.html">Review Requests</a></li>
+          <li><a href="ADMINhelpMe.html" style="display:inline-block;" ng-attr-title="{{msg}}">Mail <span class="badge">{{mailCount}}</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>                        
+            <a class="menuSignout" href="" ng-click="Signout()" style="color: #FF5252">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container" style="padding-top:8%;">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div id="cent">
+                    <div class="well well-lg" style="width: 554px; height: 337px;">
+                        <form class="form-horizontal">
+                            <fieldset>
+                                <p class="text-center">Response to: <a>{{msg.username}}</a></p>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="message">Subject:</label>
+                                    <div class="col-md-9"><h4 style="margin-top: 7px;">
+                                        <span class="label label-default">{{msg.subject}}</span></h4>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="message">Message</label>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" id="message" name="message" ng-model="message" placeholder="Please enter your message here" rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12" style="text-align: right;">
+                                        <button type="submit" class="btn btn-success" ng-click="SubmitReply()">Submit</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Success!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Reply sent.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="Done()">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>

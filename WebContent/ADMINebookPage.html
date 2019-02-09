@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <script src="lib/jquery-3.2.1.js"></script>
+      <script src="lib/angular.min.js" ></script>
+      <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+      <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+      <script src="js/ADMINebookPage.js"></script>
+      <link href='css/ADMINebookPage.css' rel="stylesheet">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title></title>
+      <style>
+      </style>
+   </head>
+   <body ng-app="app" ng-controller="ADMINebookPageController">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right: 2%;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collappsed-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="ADMINhomepage.html"><img class="navbar-brand" src="./Resources/Images/BooksForAll%20-%20small.png" alt="icon"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collappsed-nav">
+      <ul class="nav navbar-nav">
+    <li><a href="ADMINhomepage.html">e-Books <span class="sr-only">(current)</span></a></li>
+        <li><a href="ADMINusersList.html">Manage Users</a></li>
+        <li><a href="ADMINtransactions.html">Transactions</a></li>
+          <li><a href="ADMINmail.html">Review Requests</a></li>
+          <li><a href="ADMINhelpMe.html" style="display:inline-block;" ng-attr-title="{{msg}}">Mail <span class="badge">{{mailCount}}</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>                        
+            <a class="menuSignout" href="" ng-click="Signout()" style="color: #FF5252">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-3 col-md-offset-2">
+                  <div>
+                  <img ng-src="{{choosenBook.cover}}" class="ebook img-responsive" alt="ebook cover"/>
+                  </div>
+                  <!-- When pressing the "like" button, the button itself turns red and the heart turns white, i can add the other state once JS is added and i am able to divide into to states, the "like" state and the "unlike" state ("unlike" state is when he previously clicked the "like" button) -->
+                  <div class="cent">
+                  <p id="priceP" style="color:#3a6d0f; padding-top: 10px;">${{choosenBook.price}}</p>
+                  <div class="panel-group" id="list1">
+                     <div class="panel panel-default" style="width: 220px;">
+                        <div class="panel-heading">
+                           <h4 class="panel-title">
+                              <a href="#coll1" class="list-group-item" data-parent="#list1" style="display:inline-block;" data-toggle="collapse" ng-attr-title="{{Likers}}" ><span class="badge">{{Likers.length}}</span>  Likes</a>
+                           </h4>
+                        </div>
+                        
+                        <div class="panel-collapse collapse" id="coll1">
+                           <div class="list-group">
+                              <a href="" class="list-group-item" ng-repeat="liker in Likers" ng-click="ChooseCustomer(liker.username)" > {{liker.nickname}}</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+            </div>
+            <div class="col-md-5">
+               <div class="descript">
+                  <h1>{{choosenBook.name}}</h1>
+                  <p>By <span class="h2">{{choosenBook.author}}</span></p>
+                  <p class="pp">{{choosenBook.description}}</p>
+               </div>
+            </div>
+            <div class="col-md-2"></div>
+         </div>
+      </div>
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+               <div class="page-header">
+                  <h3 class="review-header">Reviews</h3>
+               </div>
+               <div id="ScrollReviews" class="media">
+                  <div class="media-body" style="position: relative;">
+                     <div class="well well-lg" ng-repeat="x in Reviews">
+                        <img ng-src="{{x.photo}}" class="media-object img-circle pull-left" style="max-width: 50px;" alt="user">
+                        <h4 class="text-uppercase review-header media-heading" style=" padding-left: 60px; padding-top: 1%">{{x.nickname}}</h4>
+                        <p class="content">{{x.content}}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         $(document).ready(function(){
+             $('[data-toggle="tooltip"]').tooltip(); 
+         });
+      </script>
+   </body>
+</html>

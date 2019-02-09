@@ -1,0 +1,211 @@
+
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	background:#fff;
+	font-size: 100%;
+}
+
+.header{
+	background:#000;
+	padding: 1.5% 0;
+}
+.header-left{
+	float:left;
+	width: 65%;
+}
+.logo{
+	float:left;
+	margin-right: 3%;
+}
+.menu{
+	 float:left;
+	 margin: 15px 0 0;
+}
+  .menu li{
+	display:inline-block;
+ }
+ .menu li:first-child{
+   	margin-left:0;
+ }
+ .menu li a{
+  	 display: block;
+	font-size: 90%;
+	padding: 5px 20px;
+	color: #FFF;
+	font-weight: 620;
+ }
+ .menu li a:hover ,.menu li.active a{
+	 background:#fff;
+	 color:#000;
+ } 
+
+.toggleMenu {
+    display:  none;
+  	padding:4px 5px 0px 5px;
+}
+
+.header_right{
+	float:right;
+	width:6%;
+	margin-top: 16px;
+}
+
+.tables {
+	width: 100%;
+    padding: 15px 0px 15px 5px;
+    float: left;
+    border-style: inset;
+    background-color: floralwhite
+}
+
+.tables ul li a {
+    font-size: 18px;
+}
+
+.tables li a:hover, .tables li .current{
+    /*we can choose a color*/
+}
+
+.tables h1 {
+    font-weight: 600;
+    font-size: 25px;
+	color: black;
+	padding: 0 0 5px 0;
+	margin: 0 0 10px 0;
+	border-bottom: 1px dashed black;
+}
+
+.slide {
+    margin-top: 12px;
+}
+
+.SM-content {
+    padding-top:  30px;
+    padding-bottom: 30px;
+}
+
+.ebook-img {
+    margin-bottom: 15px;
+    height: 200px;
+    width: 150px;
+}
+
+.ebooks a p {
+    text-align: center;
+}
+
+.ebooks p {
+    text-align: center;
+    margin: 0;
+    padding: 0 15px 0 0;
+}
+
+.ebooks p.p1 {
+    color: black;
+
+}
+
+.ebooks p.p2 {
+    color: #015279 ;
+
+}
+
+.ebooks p.p3 {
+    color:#3a6d0f;
+
+}
+
+.content-title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: left;
+    padding-left: 15px;
+}
+
+
+.h-genres {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 7px;
+    text-align:center;
+    margin-top: 7px;
+    padding-bottom: 5px
+}
+.img-circle{
+ border-radius: 50%
+}
+.ebook {
+    margin-top: 30%;
+    width: 300px;
+    height: 350px;
+}
+
+.descript {
+    margin-top: 20%;
+    margin-left: 35px;
+}
+
+.descript h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.h2{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 450;
+    color: #015279
+}
+
+.details {
+    padding-top: 10px;
+    align-content: center;
+}
+
+.details a{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.review-header {
+    color: black;    
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+
+.date {
+    position: absolute; 
+    right: 25px;
+    top: 25px;
+}
+
+.date li { padding: 0; }
+.date li:first-child:before { content: ''; }
+.date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+#bottomOffset{
+	margin-bottom: 50px;
+}
+#ScrollReviews{
+	overflow-y : scroll;
+	  max-height: 500px;
+}
+.content { 
+    padding-top: 1%;
+    margin-bottom: 20px;
+    font-size: 125%;
+    font-weight: 500;
+}
+
+.tab-content {
+    padding: 50px 15px;
+    border: 1px solid black;
+    border-top: 0;
+}
+
+
+

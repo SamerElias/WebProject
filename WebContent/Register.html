@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/Register.js"></script>
+    <link href='css/Register.css' rel="stylesheet">
+
+    <title>Sign Up</title>
+</head>
+
+<body ng-app="validationApp" ng-controller="mainController">
+    <div class="container">
+        <div class="cent">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" align="center">
+                            <img class="img-responsive" src="./Resources/Images/BooksForAll%20-%20small.png" alt="Icon">
+                        </div>
+                        <div class="panel-body">
+                            <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                                <fieldset>
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                                            <input class="form-control" ng-maxlength="10" ng-minlength="3" placeholder="Username*" id="username" name="username" type="text" autofocus="" ng-model="username" required>
+                                            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+                                            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                                            <input class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="E-mail*" name="email" type="email" ng-model="email" required>
+                                            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                                        </div>
+
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                                            <input class="form-control" ng-maxlength="10" ng-minlength="5" placeholder="Password*" name="password" type="password" ng-model="password" required>
+                                            <p ng-show="userForm.password.$error.maxlength" class="help-block">Password is too long (maximum 8 characters).</p>
+                                            <p ng-show="userForm.password.$error.minlength" class="help-block">Password is too short.</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.Nickname.$invalid && !userForm.Nickname.$pristine }">
+                                            <input class="form-control" ng-minlength="3" ng-maxlength="20" placeholder="Nickname*" name="nickname" type="text" ng-model="nickname" required>
+                                            <p ng-show="userForm.nickname.$error.maxlength" class="help-block">Nickname is too long (up to 20 characters).</p>
+                                            <p ng-show="userForm.nickname.$error.minlength" class="help-block">Nickname is too long (up to 20 characters).</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+                                            <input class="form-control" pattern="(^[0]([5])([0-9])[-\s]?([0-9]{3})[-\s]?([0-9]{4})$)|(^[0]([3]|[2]|[4]|[8]|[9])[-\s]?([0-9]{7})$)" placeholder="Telephone number*" name="phone" type="text" ng-model="phone" required>
+                                            <p ng-show="userForm.phone.$invalid && !userForm.phone.$pristine" class="help-block">Enter a valid mobile phone number (05X XXX-XXXX) or valid land phone number.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.address1.$invalid && !userForm.address1.$pristine }">
+                                            <input class="form-control" ng-minlength="3" placeholder="Street*" name="address1" type="text" ng-model="street" required>
+                                            <p ng-show="userForm.address1.$error.minlength" class="help-block">Street name is too short.</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.address2.$invalid && !userForm.address2.$pristine }">
+                                            <input class="form-control" ng-minlength="3" placeholder="City*" name="address2" type="text" ng-model="city" required>
+                                            <p ng-show="userForm.address2.$error.minlength" class="help-block">City name is too short.</p>
+                                        </div>
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.address3.$invalid && !userForm.address3.$pristine }">
+                                            <input class="form-control" pattern="([0-9]{7})" ng-maxlength="7" ng-minlength="7" placeholder="Zip Code*" name="address3" type="text" ng-model="zipcode" required>
+                                            <p ng-show="userForm.address3.$invalid && !userForm.address3.$pristine" class="help-block">Zip code is invalid.</p>
+                                        </div>
+
+                                        <div class="form-group" ng-class="{ 'has-error' : userForm.Desc.$invalid && !userForm.Desc.$pristine }">
+                                            <textarea class="form-control" rows="3" ng-maxlength="50" placeholder="Description" name="description" type="text" ng-model="desc"></textarea>
+                                            <p ng-show="userForm.description.$error.maxlength" class="help-block">Description is too long (up to 50 characters).</p>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Photo" name="photo" type="text" ng-model="photo">
+                                        </div>
+                                    </div>
+                                    <input type="submit" value="Register" class="btn btn-success cen" />
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="xModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Error</h4>
+        </div>
+        <div class="modal-body">
+          <p>Please fill in the required fields (Username, Password, Nickname, full address and Telephone number).</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="Done()">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>

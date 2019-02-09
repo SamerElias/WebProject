@@ -1,0 +1,69 @@
+
+
+.slide {
+    margin-top: 12px;
+}
+
+.SM-content {
+    padding-top:  30px;
+    padding-bottom: 30px;
+}
+
+.ebook-img {
+    margin-bottom: 15px;
+    height: 200px;
+    width: 150px;
+}
+
+.ebooks a p {
+    text-align: center;
+}
+
+.ebooks p {
+    text-align: center;
+    margin: 0;
+    padding: 0 15px 0 0;
+}
+
+.ebooks p.p1 {
+    color: black;
+
+}
+
+.ebooks p.p2 {
+    color: #015279 ;
+
+}
+
+.ebooks p.p3 {
+    color:#3a6d0f;
+
+}
+
+.content-title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: left;
+    padding-left: 15px;
+}
+
+
+.h-genres {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 7px;
+    text-align:center;
+    margin-top: 7px;
+    padding-bottom: 5px
+}
+
+
+
+
+
+
+
+
+
+

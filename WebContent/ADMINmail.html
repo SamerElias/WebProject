@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="lib/jquery-3.2.1.js"></script>
+  <script src="lib/angular.min.js" ></script>
+<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+     <script src="js/ADMINmail.js"></script>
+    <link href='css/ADMINmail.css' rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    
+    <title>BookForAll</title>
+
+    <style>
+
+    </style>
+</head>
+
+    
+<body ng-app="app" ng-controller="ADMINmailController">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right: 2%;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collappsed-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="ADMINhomepage.html"><img class="navbar-brand" src="./Resources/Images/BooksForAll%20-%20small.png" alt="icon"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collappsed-nav">
+      <ul class="nav navbar-nav">
+    <li><a href="ADMINhomepage.html">e-Books <span class="sr-only">(current)</span></a></li>
+        <li><a href="ADMINusersList.html">Manage Users</a></li>
+        <li><a href="ADMINtransactions.html">Transactions</a></li>
+          <li class="active"><a href="ADMINmail.html">Review Requests</a></li>
+          <li><a href="ADMINhelpMe.html" style="display:inline-block;" ng-attr-title="{{msg}}">Mail <span class="badge">{{mailCount}}</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>                        
+            <a class="menuSignout" href="" ng-click="Signout()" style="color: #FF5252">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="page-header">
+                <h3 class="review-header">Review Requests</h3>
+            </div>
+            <div class="media" ng-repeat="x in reviews">       
+            <div data-toggle="collapse" href="{{'#collapse' + $index}}" aria-expanded="false" aria-controls="{{'collapse' + $index}}">
+                <div class="media-body" style="position: relative;">             
+                   <div class="well well-lg">
+                   
+                       <img ng-src="{{x.photo}}" align="middle" class="media-object img-circle pull-left" width="40" height="40" style="margin-right:10px;" alt="user">
+                   		<h4 class="review-header media-heading" style=" padding-left: 60px; padding-top: 1%"><a href="ADMINhomepage.html">
+                   		{{x.username}}</a> on <a>{{x.bookName}}</a></h4>
+
+                   		<div class="collapse" id="{{'collapse' + $index}}">
+                   		 <hr width="43%" align="left">
+                   		 <p class="date review-header">{{x.reviewDate}} </p>
+                      
+                       <p class="content">{{x.content}}</p>
+				
+                   		<button type="button" class="btn btn-danger btn-sm decline" ng-click="DeclineReview(x)">Decline</button>
+                   		<button type="button" class="btn btn-success btn-sm approve" ng-click="AcceptReview(x)" >Approve</button>
+                   		</div>
+                   		</div>
+                   </div>              
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+        
+</body>
+</html>

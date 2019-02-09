@@ -1,0 +1,74 @@
+
+.tables {
+	width: 100%;
+    padding: 15px 0px 15px 5px;
+    float: left;
+    border-style: inset;
+    background-color: floralwhite
+}
+
+.tables ul li a {
+    font-size: 18px;
+}
+
+.tables h1 {
+    font-weight: 600;
+    font-size: 25px;
+	color: black;
+	padding: 0 0 5px 0;
+	margin: 0 0 10px 0;
+	border-bottom: 1px dashed black;
+}
+
+.ebook-img {
+    margin-bottom: 15px;
+    height: 200px;
+    width: 150px;
+}
+
+.ebook {
+	width:250px;
+	height: 320px;
+}
+
+.ebooks a p {
+    text-align: center;
+}
+
+.ebooks p {
+    text-align: center;
+    margin: 0;
+    padding: 0 15px 0 0;
+}
+
+.ebooks p.p1 {
+    color: black;
+
+}
+
+.ebooks p.p2 {
+    color: #015279 ;
+
+}
+
+.ebooks p.p3 {
+    color:#3a6d0f;
+
+}
+
+.content-title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: sans-serif;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 5%;
+}
+
+
+
+
+
+
+
+

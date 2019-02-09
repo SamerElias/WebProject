@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script src="lib/jquery-3.2.1.js"></script>
+    <script src="lib/angular.min.js" ></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/eBook.js"></script>
+    <link href='css/eBook.css' rel="stylesheet">
+</head>
+<body ng-app="app" ng-controller="eBookController">
+ <div id="includedContent"></div>
+  <div class="modal fade" id="xModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome back</h4>
+        </div>
+        <div class="modal-body">
+          <p>Would you like to continue from where you left off?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="Rest()">Rest</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="Continue()">Continue</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

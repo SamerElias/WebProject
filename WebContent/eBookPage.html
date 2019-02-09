@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="lib/jquery-3.2.1.js"></script>
+    <script src="lib/angular.min.js" ></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="js/eBookPage.js"></script>
+    <link href='css/eBookPage.css' rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title></title>
+
+    <style>
+        
+    </style>
+    
+</head>
+
+    
+<body ng-app="app" ng-controller="eBookPageController">
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="margin-right: 2%;">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collappsed-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="homepage.html"><img class="navbar-brand" src="./Resources/Images/BooksForAll%20-%20small.png" alt="icon"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="collappsed-nav">
+      <ul class="nav navbar-nav">
+    <li><a href="myeBooks.html">My eBooks</a></li>
+						    	<li><a href="Profile.html">{{user.nickname}}</a></li>
+						    	  <li><a href="Mail.html" style="display:inline-block;" ng-attr-title="{{msg}}">Mail <span class="badge">{{mailCount}}</span></a></li>
+						    	
+						    	<li><a href="About.html">About</a></li>
+								<li><a href="UserHelpMe.html">Contact us</a></li>	
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li>                        
+            <a class="menuSignout" href="" ng-click="Signout()" style="color: #FF5252">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-2">
+        <div class="text-center">
+            <img ng-src="{{choosenBook.cover}}" style="width:265px" class="ebook img-responsive" alt="ebook cover"/>
+            <button type="button" id="likeButton" class="btn btn-default" style="background:w"><span id="likeHeart" class="glyphicon glyphicon-heart-empty" style="color:red"></span></button>
+            <!-- When pressing the "like" button, the button itself turns red and the heart turns white, i can add the other state once JS is added and i am able to divide into to states, the "like" state and the "unlike" state ("unlike" state is when he previously clicked the "like" button) -->
+
+            <a class="btn btn-secondary btn-lg" data-placement="right" data-toggle="tooltip" ng-attr-title="{{Likers}}">{{Likes.length}} Likes </a>
+                  <p id="priceP" style="color:#3a6d0f; padding-top: 10px;">${{choosenBook.price}}</p>
+            <button type="button" id="purchaseButton" class="btn btn-success"  >Purchase</button>
+            
+        </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="descript">
+                <h1>{{choosenBook.name}}</h1>
+                <p>By <span class="h2">{{choosenBook.author}}</span></p>
+                <p class="pp">{{choosenBook.description}}</p>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+    
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="page-header">
+                <h3 class="review-header">Reviews</h3>
+            </div>
+            <div class="row">
+     <div class="col-md-10 col-md-offset-1" id="bottomOffset">
+       <form id="form1" name="userForm" ng-submit="submitReview(userForm.$valid)" novalidate>
+    <div id="review" class="input-group" ng-class="{ 'has-error' : userForm.review.$invalid && !userForm.review.$pristine }">
+   		 <span class="input-group-addon">Review</span>
+   		 <textarea class="form-control" ng-minlength="1" rows="5" ng-click="hideSuccessAlert()" name="review" placeholder="Write review about the book.." ng-model="review" required>
+  		</textarea>
+  	</div>
+	<button class="btn btn-primary pull-right" style="margin:7px 4px 0 0;" type="submit" form="form1" value="Submit">Submit review</button>
+	<div class="alert alert-success" role="alert"  id="success-alert" hidden>
+  		<strong>Thank you for sharing!</strong> Your review was submitted for approval !.
+		</div>
+    </form>
+     </div>
+</div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <a style="text-align:center;display:block; padding-bottom:10px;" data-toggle="collapse" data-target="#Revs">Load previous reviews..</a>
+          <div id="Revs" class="collapse">
+        
+            <div id="ScrollReviews" class="media">       
+                <div class="media-body" style="position: relative;">
+                   <div class="well well-lg" ng-repeat="x in Reviews">
+                       <img ng-src="{{x.photo}}" class="media-object img-circle pull-left" style="width:50px;height:50px;" alt="user">
+                       <h4 class="review-header media-heading" style=" padding-left: 60px; padding-top: 1%">{{x.nickname}}</h4>
+                       <p class="content">{{x.content}}</p>
+                   </div>              
+                </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<br><br><br><br><br>
+
+    
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+        
+</body>
+    
+</html>

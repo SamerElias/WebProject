@@ -1,0 +1,50 @@
+html, body{
+	font-family: 'Open Sans', sans-serif;
+	background:#fff;
+	font-size: 100%;
+}
+
+.review-header {
+    font-weight: bold;
+}
+
+.date {
+    position: absolute; 
+    right: 25px;
+    bottom: 25px;
+}
+
+.date li { padding: 0; }
+.date li:first-child:before { content: ''; }
+.date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+
+.content { 
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 125%;
+    font-weight: 500;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border-top: 1px solid #ccc;
+    margin: 2em 0 1em 0;
+}
+
+.approve {
+    position: absolute;
+    top: 27px;
+    right: 50px;
+}
+
+.decline {
+    position: absolute;
+    top: 27px;
+    right: 130px;
+}

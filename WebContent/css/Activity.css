@@ -1,0 +1,25 @@
+.review-header {
+    color: black;    
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+
+.date {
+    position: absolute; 
+    right: 25px;
+    top: 25px;
+}
+
+.date li { padding: 0; }
+.date li:first-child:before { content: ''; }
+.date li:before { 
+    content: '.'; 
+    margin-left: -2px; 
+    margin-right: 2px;
+}
+
+.content { 
+    padding-top: 10px;
+    font-size: 125%;
+    font-weight: 500;
+}

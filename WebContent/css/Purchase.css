@@ -1,0 +1,23 @@
+
+
+.center-div{
+	width: 70%;
+	padding-top:5%;
+}
+
+.img-size {
+	max-width:150px;
+	max-height:250px;
+	margin: 0 10px 0 25px;	
+}
+
+
+.title{
+	font-weight:600;
+	font-size: 20px;
+	padding-bottom: 1%;
+}
+
+.price {
+	color:#3a6d0f;
+}

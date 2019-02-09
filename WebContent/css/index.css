@@ -1,0 +1,93 @@
+
+
+
+body
+{
+    background: url("../Resources/Images/Login Cover/1.png") fixed;
+    background-size: cover;
+    padding: 8.5%;
+    margin: 0;
+}
+
+.cent {
+  position: relative;
+    width: 320px;
+    margin: 0 auto;
+    padding-top: 5%
+}
+
+.panel-default{
+  background: rgba(255, 255, 255, 0.9);
+}
+.panel-default .panel-heading{
+  background: rgba(255, 255, 255, 0.0);
+}
+.panel-default .panel-body{
+  background: rgba(255, 255, 255, 0.95);
+}
+
+p.register
+{
+    width: 100%;
+    margin: 0;
+    padding: 15px ;
+    background: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #000000;
+    outline: 0;
+}
+
+a.register
+{
+    font-size: 110%;
+    font-weight: 700;
+    color: #4AEA2E;
+    letter-spacing: 0px;
+}
+
+form
+{
+    width: 250px;
+    margin: 0 auto;
+}
+
+form.login input[type="text"], form.login input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 100%;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 90%;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+

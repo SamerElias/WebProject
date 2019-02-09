@@ -1,0 +1,21 @@
+
+.pad {
+	padding-top: 6%;
+}
+
+.header-profile {
+	padding-top: 8px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+}
+
+hr {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+label {
+	font-size:15px;
+}
